@@ -1,82 +1,78 @@
-'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+"use client";
+
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+
+const navLinks = [
+  { name: "მთავარი", href: "/" },
+  { name: "სერვისები", href: "/#services" },
+  { name: "გალერეა", href: "/#gallery" },
+  { name: "კონტაქტი", href: "/#contact" },
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'მთავარი', href: '/' },
-    { name: 'სერვისები და ფასები', href: '#services' },
-    { name: 'კონტაქტი', href: '#contact' },
-  ];
-
   return (
-    <header className="w-full bg-white border-b border-rose-50 sticky top-0 z-50">
-      {/* 
-        აქ დაცულია ზუსტად იგივე max-w-7xl და px-10, 
-        რაც Hero სექციაში გაქვს, რომ ელემენტები ერთმანეთს დაემთხვეს 
-      */}
-      <div className="mx-auto px-8 h-20 flex items-center justify-between">
-        
-        {/* ლოგო */}
-        <Link href="/" className="text-xl font-bold text-rose-600 tracking-tight">
-          BEAUTY_LOGO
+    <header className="sticky top-0 z-50 w-full border-b border-rose-50 bg-white/95 backdrop-blur">
+      <div className="mx-auto flex h-20 items-center justify-between px-6 md:px-8">
+        <Link href="/" className="text-xl font-bold tracking-tight text-rose-600">
+          PURE SKIN
         </Link>
 
-        {/* დესკტოპ მენიუ */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className="text-sm font-medium text-gray-600 hover:text-rose-600 transition-colors"
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-rose-600"
             >
               {link.name}
             </Link>
           ))}
-          <Link 
-            href="/booking" 
-            className="bg-rose-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-rose-700 transition-all shadow-sm"
+          <Link
+            href="/booking"
+            className="rounded-full bg-rose-600 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-700"
           >
             დაჯავშნა
           </Link>
         </nav>
 
-        {/* მობილურის ღილაკი */}
-        <button 
-          className="md:hidden text-gray-600 focus:outline-none" 
-          onClick={() => setIsOpen(!isOpen)}
+        <button
+          type="button"
+          className="text-sm font-bold uppercase text-gray-600 md:hidden"
+          onClick={() => setIsOpen((value) => !value)}
+          aria-expanded={isOpen}
+          aria-label="მენიუს გახსნა"
         >
-          <span className="text-sm font-bold uppercase">{isOpen ? 'დახურვა' : 'მენიუ'}</span>
+          {isOpen ? "დახურვა" : "მენიუ"}
         </button>
       </div>
 
-      {/* მობილურის ანიმირებული მენიუ */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
-            initial={{ height: 0, opacity: 0 }} 
-            animate={{ height: 'auto', opacity: 1 }} 
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-white border-b border-rose-50"
+            className="overflow-hidden border-b border-rose-50 bg-white md:hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
+            <div className="flex flex-col gap-4 p-6">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href} 
-                  onClick={() => setIsOpen(false)} 
-                  className="text-lg text-gray-700 py-2 border-b border-gray-50 last:border-0"
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="border-b border-gray-50 py-2 text-lg text-gray-700 last:border-0"
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link 
-                href="/booking" 
-                onClick={() => setIsOpen(false)} 
-                className="bg-rose-600 text-white text-center py-3 mt-2 rounded-lg font-semibold"
+              <Link
+                href="/booking"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 rounded-lg bg-rose-600 py-3 text-center font-semibold text-white"
               >
                 დაჯავშნა
               </Link>

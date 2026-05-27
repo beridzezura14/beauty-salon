@@ -1,70 +1,90 @@
-'use client';
+"use client";
+
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { capsFont } from "../fonts";
+
+const services = [
+  {
+    cat: "სახე",
+    zones: "ზედა ტუჩი, ნიკაპი, ღაწვები",
+    price: "20₾-დან",
+  },
+  {
+    cat: "სხეული",
+    zones: "იღლიები, მკერდი, ხელები, ფეხები, ზურგი",
+    price: "40₾-დან",
+  },
+  {
+    cat: "ბიკინი",
+    zones: "ზედაპირული და ღრმა ბიკინი",
+    price: "60₾-დან",
+  },
+  {
+    cat: "პაკეტები",
+    zones: "სრული ტანი, სახე + იღლიები",
+    price: "150₾-დან",
+  },
+];
 
 export default function Services() {
-  const services = [
-    { cat: "სახე", zones: "ზედა ტუჩი, ნიკაპი, ღაწვები", price: "20₾" },
-    { cat: "სხეული", zones: "იღლიები, მკერდი, ხელები, ფეხები, ზურგი", price: "40₾" },
-    { cat: "ბიკინი", zones: "ზედაპირული, ღრმა ბიკინი", price: "60₾" },
-    { cat: "პაკეტები", zones: "სრული ტანი, სახე + იღლიები", price: "150₾" }
-  ];
-
   return (
-    <section id="services" className="w-full py-24 px-6 md:px-8 bg-stone-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+    <section className="w-full bg-stone-50 px-6 py-24 md:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div id="services" className="mb-16 scroll-mt-24 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <h2 className="text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter">
+            <h2 className={`${capsFont.className} max-w-full text-[2rem] font-bold leading-none tracking-tight text-stone-900 sm:text-5xl md:text-7xl md:tracking-tighter`}>
               სერვისები<span className="text-rose-500">.</span>
             </h2>
-            {/* აქ შევცვალე ტექსტი და დავუმატე მეტი სივრცე */}
             <div className="mt-6 max-w-lg">
-              <p className="text-stone-600 leading-relaxed text-sm md:text-base">
-                ჩვენი ესთეტიკური ცენტრი გთავაზობთ უმაღლესი სტანდარტის ლაზერულ პროცედურებს. 
-                თითოეული სერვისი მორგებულია თქვენს ინდივიდუალურ საჭიროებებზე, 
-                რათა უზრუნველვყოთ უსაფრთხო, ეფექტური და ხანგრძლივი შედეგი.
+              <p className="text-sm leading-relaxed text-stone-600 md:text-base">
+                თითოეული სერვისი მორგებულია კანის ტიპსა და საჭიროებაზე, რათა შედეგი
+                იყოს უსაფრთხო, კომფორტული და ხანგრძლივი.
               </p>
-              <p className="text-rose-600 mt-4 tracking-[0.2em] uppercase text-[10px] font-bold">
-                ინოვაციური ტექნოლოგია — სრულყოფილი კანისთვის
+              <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-rose-600">
+                თანამედროვე ტექნოლოგია კანის მოვლისთვის
               </p>
             </div>
           </div>
-          
-          <span className="text-stone-400 text-xs uppercase tracking-widest hidden md:block pb-2">
-            01 — კატალოგი
+
+          <span className="hidden pb-2 text-xs uppercase tracking-widest text-stone-400 md:block">
+            01 - კატალოგი
           </span>
         </div>
 
         <div className="flex flex-col gap-3">
-          {services.map((s, i) => (
-            <motion.div 
-              key={i}
+          {services.map((service, index) => (
+            <motion.div
+              key={service.cat}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group relative flex flex-col md:flex-row items-center justify-between p-8 md:p-10 bg-white rounded-3xl border border-stone-100 hover:border-rose-200 transition-all duration-500 overflow-hidden"
+              className="group relative flex flex-col items-center justify-between overflow-hidden rounded-3xl border border-stone-100 bg-white p-8 transition-all duration-500 hover:border-rose-200 md:flex-row md:p-10"
             >
-              <div className="absolute inset-0 bg-rose-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-rose-50 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-              <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-16 flex-1 w-full">
-                <span className="text-rose-400 font-bold text-xs uppercase tracking-[0.2em] w-20">
-                  0{i + 1}
+              <div className="relative z-10 flex w-full flex-1 flex-col gap-4 md:flex-row md:items-center md:gap-16">
+                <span className="w-20 text-xs font-bold uppercase tracking-[0.2em] text-rose-400">
+                  0{index + 1}
                 </span>
-                <span className="text-stone-900 font-bold uppercase tracking-widest text-xs md:text-sm w-32">
-                  {s.cat}
+                <span className={`${capsFont.className} w-32 text-xs font-bold uppercase tracking-widest text-stone-900 md:text-xl`}>
+                  {service.cat}
                 </span>
-                <span className="text-stone-600 font-medium text-lg md:text-xl">
-                  {s.zones}
+                <span className="text-[15px] font-medium text-stone-600 md:text-md">
+                  {service.zones}
                 </span>
               </div>
-              
-              <div className="relative z-10 mt-6 md:mt-0 flex items-center gap-12 w-full md:w-auto justify-between md:justify-end">
+
+              <div className="relative z-10 mt-6 flex w-full items-center justify-between gap-8 md:mt-0 md:w-auto md:justify-end">
                 <span className="text-xl font-bold text-stone-900">
-                  {s.price}
+                  {service.price}
                 </span>
-                <button className="cursor-pointer text-[10px] font-bold uppercase tracking-[0.3em] text-stone-900 border-b-2 border-stone-900 hover:border-rose-500 hover:text-rose-500 transition-all">
+                <Link
+                  href={`/booking?service=${encodeURIComponent(service.cat)}`}
+                  className="border-b-2 border-stone-900 text-[10px] font-bold uppercase tracking-[0.3em] text-stone-900 transition-all hover:border-rose-500 hover:text-rose-500"
+                >
                   დაჯავშნა
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}
