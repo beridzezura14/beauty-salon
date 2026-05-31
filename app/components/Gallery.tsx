@@ -6,12 +6,12 @@ import { capsFont } from "../fonts";
 const leftImages = [
   "https://images.unsplash.com/photo-1702312721918-62235a0b77d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZhY2UlMjBlcGlsYXRpb258ZW58MHx8MHx8fDA%3D",
   "https://images.unsplash.com/photo-1685979979782-759cbdd528ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGVwaWxhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
-  "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1200&auto=format&fit=crop",
+  // "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1200&auto=format&fit=crop",
 ];
 
 const rightImages = [
   "https://images.unsplash.com/photo-1661308675370-31455561e15e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvZHklMjBlcGlsYXRpb258ZW58MHx8MHx8fDA%3D",
-  "https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=1200&auto=format&fit=crop",
+  // "https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1689400268913-be2e6e884ef8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fGJvZHklMjBlcGlsYXRpb258ZW58MHx8MHx8fDA%3D",
 ];
 

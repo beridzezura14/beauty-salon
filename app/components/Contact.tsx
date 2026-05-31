@@ -6,7 +6,7 @@ import { capsFont } from "../fonts";
 export default function Contact() {
   return (
     <section
-      className="relative w-full overflow-hidden bg-cover bg-center px-6 py-24 md:px-8"
+      className="relative w-full overflow-hidden bg-cover bg-center bg-fixed px-6 py-24 md:px-8"
       style={{
         backgroundImage:
           "linear-gradient(to right, rgba(251, 232, 235, 0.94), rgba(251, 232, 235, 0.72)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop')",

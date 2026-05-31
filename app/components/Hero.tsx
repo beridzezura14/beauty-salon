@@ -10,7 +10,7 @@ const stats = [
 export default function Hero() {
   return (
     <section
-      className="relative flex min-h-[68vh] w-full flex-col bg-cover bg-center p-6 md:p-8"
+      className="relative flex min-h-[68vh] w-full flex-col bg-cover bg-center bg-fixed p-6 md:p-8"
       style={{
         backgroundImage:
           "linear-gradient(to right, rgba(251, 232, 235, 0.92), rgba(251, 232, 235, 0.72)), url('/hero.png')",
